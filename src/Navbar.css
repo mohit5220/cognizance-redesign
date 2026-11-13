@@ -1,0 +1,418 @@
+
+.cog-header {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  width: 100%;
+  height: 92px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto minmax(170px, 1fr);
+  align-items: center;
+  padding: 0 4.8%;
+  background: #050505;
+  border-bottom: 1px solid rgba(255,255,255,0.09);
+}
+
+.cog-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #f5f5f5;
+  text-decoration: none;
+  white-space: nowrap;
+  font-family: Orbitron, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+.cog-symbol {
+  width: 43px;
+  height: 43px;
+  color: #20e9eb;
+  filter: drop-shadow(0 0 8px rgba(0,233,235,.85));
+  flex-shrink: 0;
+}
+
+.cog-symbol svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cog-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(17px, 1.8vw, 28px);
+  white-space: nowrap;
+}
+
+.cog-navigation a {
+  color: #ededed;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color .2s ease;
+}
+
+.cog-navigation a:hover {
+  color: #20e9eb;
+}
+
+.cog-navigation a.current:not(.results) {
+  color: #c5ffff;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.cog-navigation a.results {
+  color: #ffdc00;
+}
+
+.cog-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+}
+
+.cog-actions a:not(.cog-login) {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  transition: color .2s ease;
+}
+
+.cog-actions a:not(.cog-login):hover {
+  color: #20e9eb;
+}
+
+.cog-actions svg {
+  width: 21px;
+  height: 21px;
+}
+
+.cog-login {
+  padding: 8px 15px;
+  border: 1px solid #eee;
+  color: #fff;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  transition: .2s ease;
+}
+
+.cog-login:hover {
+  color: #20e9eb;
+  border-color: #20e9eb;
+}
+
+.cog-hamburger {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .cog-header {
+    grid-template-columns: auto 1fr auto;
+    gap: 18px;
+    padding: 0 3%;
+  }
+
+  .cog-brand {
+    font-size: 16px;
+  }
+
+  .cog-navigation {
+    gap: 13px;
+  }
+
+  .cog-navigation a {
+    font-size: 13px;
+  }
+
+  .cog-actions {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 850px) {
+  .cog-header {
+    height: 76px;
+    grid-template-columns: 1fr auto;
+    padding: 0 5%;
+  }
+
+  .cog-brand {
+    font-size: 16px;
+  }
+
+  .cog-symbol {
+    width: 38px;
+    height: 38px;
+  }
+
+  .cog-actions {
+    display: none;
+  }
+
+  .cog-navigation {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 22px 5%;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #050505;
+    border-bottom: 1px solid #15393b;
+  }
+
+  .cog-navigation.is-open {
+    display: flex;
+  }
+
+  .cog-hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 9px;
+    background: transparent;
+    border: 1px solid #20e9eb;
+    cursor: pointer;
+  }
+
+  .cog-hamburger span {
+    width: 21px;
+    height: 2px;
+    background: #20e9eb;
+  }
+}
+
+
+/* SIMPLE COGNIZANCE LOGIN SCREEN */
+
+.cog-login-screen {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 50000 !important;
+  display: grid !important;
+  grid-template-columns: 42% 58% !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  overflow-y: auto;
+  background: #000 !important;
+  color: white;
+}
+
+.cog-login-visual {
+  display: block !important;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.12), rgba(0,0,0,.2)),
+    url("https://images.pexels.com/photos/7672265/pexels-photo-7672265.jpeg?cs=srgb") center center / cover no-repeat !important;
+}
+
+.cog-login-form-side {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 45px 9%;
+  box-sizing: border-box;
+  background: #000 !important;
+}
+
+.cog-login-brand {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-bottom: 65px;
+  font: 600 17px Orbitron, sans-serif;
+  color: white;
+}
+
+.cog-login-brand > span:first-child {
+  display: block;
+  width: 38px !important;
+  height: 38px !important;
+  flex-shrink: 0;
+}
+
+.cog-login-brand svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.cog-login-brand > span:last-child {
+  color: #20e9eb;
+}
+
+.cog-login-content {
+  width: 100% !important;
+  max-width: 510px;
+  margin: 0 auto;
+}
+
+.cog-login-content h2,
+.cog-login-content h1 {
+  text-align: center;
+  font-family: Orbitron, sans-serif;
+}
+
+.cog-login-content h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.cog-login-content h1 {
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.cog-login-content > p {
+  color: #20e9eb;
+  text-align: center;
+  margin: 12px 0 55px;
+}
+
+.cog-login-content form {
+  display: flex !important;
+  flex-direction: column;
+  gap: 17px;
+  width: 100%;
+}
+
+.cog-login-content label {
+  display: flex !important;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  font-size: 14px;
+}
+
+.cog-login-content input {
+  display: block !important;
+  width: 100% !important;
+  height: 45px !important;
+  box-sizing: border-box;
+  padding: 0 12px;
+  background: #fff !important;
+  color: #111 !important;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.cog-forgot {
+  align-self: flex-end;
+  border: 0;
+  background: transparent;
+  color: #20e9eb;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.cog-submit-login {
+  width: 100%;
+  height: 39px;
+  border: 1px solid #20e9eb;
+  border-radius: 3px;
+  background: #20e9eb;
+  color: #000;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.cog-signup-link {
+  margin-top: 22px;
+  text-align: center;
+  color: white;
+  font-size: 13px;
+}
+
+.cog-signup-link button {
+  color: #20e9eb;
+  background: transparent;
+  border: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cog-login-close {
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  z-index: 50001;
+  background: transparent;
+  border: 0;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Upper-right notification and cart controls */
+
+.cog-actions button:not(.cog-login) {
+  background: transparent !important;
+  color: white !important;
+  border: 0 !important;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.cog-actions button:not(.cog-login):hover {
+  color: #20e9eb !important;
+}
+
+.cog-actions .cog-login {
+  background: transparent !important;
+  color: white !important;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.cog-popover {
+  position: fixed !important;
+  top: 82px !important;
+  z-index: 40000 !important;
+  background: #08090e !important;
+  color: white !important;
+  border: 1px solid #20e9eb;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,.5);
+}
+
+.cog-notifications {
+  right: 13.5%;
+  width: 286px;
+}
+
+.cog-cart {
+  right: 18px;
+  width: 315px;
+}
+
+@media(max-width: 700px) {
+  .cog-login-screen {
+    display: block !important;
+  }
+
+  .cog-login-visual {
+    display: none !important;
+  }
+
+  .cog-login-form-side {
+    padding: 45px 7%;
+  }
+
+  .cog-login-content > p {
+    margin-bottom: 35px;
+  }
+}
